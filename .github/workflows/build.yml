@@ -25,7 +25,7 @@ jobs:
           java-version: 17
 
       # "current" always installs the latest stable Gradle, so no version is pinned here.
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v6
         with:
           gradle-version: current
 
