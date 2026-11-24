@@ -1,26 +1,29 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.localcall"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.localcall"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // R8: shrinks, optimizes and obfuscates code; resource shrinking drops unused resources.
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
             // Signed with the auto-generated debug key so the CI APK is installable as-is.
             // Swap for a real keystore before publishing anywhere.
             signingConfig = signingConfigs.getByName("debug")
@@ -36,14 +39,16 @@ android {
         compose = true
     }
 
-    packaging {
-        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    dependenciesInfo {
+        // Removes Google's signed dependency metadata blob from the APK.
+        includeInApk = false
     }
-}
 
-kotlin {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_17)
+    packaging {
+        resources.excludes += setOf(
+            "/META-INF/{AL2.0,LGPL2.1}",
+            "/DebugProbesKt.bin",
+        )
     }
 }
 

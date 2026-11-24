@@ -20,7 +20,6 @@ import java.io.IOException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
@@ -39,7 +38,6 @@ import kotlinx.coroutines.plus
  * All work runs on a single-threaded dispatcher, so the state machine below needs no locks.
  * The public functions are safe to call from the UI thread.
  */
-@OptIn(ExperimentalCoroutinesApi::class)
 class CallEngine(
     context: Context,
     private val identityRepository: IdentityRepository,

@@ -28,10 +28,12 @@ Audio is 16 kHz mono 16-bit PCM in 20 ms frames (about 256 kbit/s, uncompressed)
 - **minSdk 21 (Android 5.0).** Jetpack Compose cannot run below API 21, so Android 4.x is not possible with Compose.
 - Calls are unencrypted and unauthenticated, so use it on networks you trust.
 - Some routers enable "client isolation" (AP isolation), which blocks phone-to-phone traffic. Discovery will find nothing there.
+- Release builds use R8 (code shrinking, optimization, obfuscation) and resource shrinking.
+- Build tooling (Gradle, Android Gradle plugin, Kotlin) is the newest. App libraries (Compose, lifecycle, activity, core) stay on versions that still support Android 5.0, because newer lifecycle releases require Android 6.0.
 - The CI APK is signed with the debug key so it installs directly. Add a real keystore before distributing.
 
 ## Build
 
 Push to `main` or `master`, or run the workflow manually, and download the `local-call-apk` artifact from the Actions run.
 
-Locally: `gradle assembleRelease` (Gradle 8.10+, JDK 17).
+Locally: `gradle assembleRelease` (latest Gradle, JDK 17).

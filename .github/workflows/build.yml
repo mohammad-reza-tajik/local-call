@@ -24,9 +24,10 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      # "current" always installs the latest stable Gradle, so no version is pinned here.
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: 8.10.2
+          gradle-version: current
 
       - name: Build release APK
         run: gradle assembleRelease --no-daemon
