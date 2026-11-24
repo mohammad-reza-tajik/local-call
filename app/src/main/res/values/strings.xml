@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Local Call</string>
+
+    <!-- Peers screen -->
+    <string name="peers_visible_as">Visible as %1$s</string>
+    <string name="peers_nearby">Nearby</string>
+    <string name="peers_searching_title">Looking for people nearby</string>
+    <string name="peers_searching_body">Connect both phones to the same Wi-Fi, or to one phone\'s hotspot. No internet needed.</string>
+    <string name="peers_call">Call</string>
+    <string name="peers_rename_title">Your display name</string>
+    <string name="peers_rename_hint">Name</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+
+    <!-- Call screen -->
+    <string name="call_calling">Calling…</string>
+    <string name="call_incoming">Incoming call</string>
+    <string name="call_mute">Mute</string>
+    <string name="call_unmute">Unmute</string>
+    <string name="call_speaker">Speaker</string>
+    <string name="call_end">End call</string>
+    <string name="call_accept">Accept</string>
+    <string name="call_decline">Decline</string>
+
+    <!-- Notices -->
+    <string name="notice_rejected">Call declined</string>
+    <string name="notice_no_answer">No answer</string>
+    <string name="notice_missed">Missed call</string>
+    <string name="notice_remote_ended">Call ended</string>
+    <string name="notice_connection_lost">Connection lost</string>
+    <string name="notice_mic_error">Could not use the microphone</string>
+    <string name="notice_network_error">Could not open the network port</string>
+    <string name="notice_permission_denied">Microphone permission is needed to make calls</string>
+
+    <!-- Service -->
+    <string name="service_channel_name">Ongoing call</string>
+    <string name="service_notification_title">Local Call in progress</string>
+    <string name="service_notification_text">Tap to return to your call</string>
+</resources>
